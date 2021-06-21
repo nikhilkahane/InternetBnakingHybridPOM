@@ -10,14 +10,13 @@ import com.ibanking.pageObjects.HomePage;
 import com.ibanking.pageObjects.LoginPage;
 import com.ibanking.pageObjects.NewCustomerPage;
 
-public class HomePageTest extends TestBase{
+public class NewCustomerPageTest extends TestBase{
 	
 	LoginPage loginPage;
 	HomePage homePage;
 	NewCustomerPage newCustomerPage;
 	
-	
-	public HomePageTest() {
+	public NewCustomerPageTest() {
 		super();
 	}
 	
@@ -26,28 +25,19 @@ public class HomePageTest extends TestBase{
 		initialization();
 		loginPage = new LoginPage();
 		homePage=loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		newCustomerPage=homePage.goToNewCustomer();
 	}
 	
 	
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		//driver.quit();
 	}
 	
 	
 	@Test
-	public void linkTest() {
-		Assert.assertTrue(homePage.newCutomerLinkTest());
-	}
-	
-	@Test
-	public void validateManagerIDTest() {
-		Assert.assertTrue(homePage.validateManagerID(prop.getProperty("username")));
-	}
-	
-	@Test
-	public void goToNewCustomerTest() {
-		newCustomerPage=homePage.goToNewCustomer();
+	public void createCustomerTest() {
+		newCustomerPage.createCustomer("oridgeirgio", "Male", "20121999", "ksnvie ksefhi osief", "Pune", "MP", "434321", "9094647489", "lksj@mail.com", "1q2w3e4r");
 	}
 
 }

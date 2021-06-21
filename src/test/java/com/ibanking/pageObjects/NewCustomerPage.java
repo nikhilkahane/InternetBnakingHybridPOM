@@ -1,7 +1,9 @@
 package com.ibanking.pageObjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.ibanking.base.TestBase;
 
@@ -9,7 +11,7 @@ public class NewCustomerPage extends TestBase{
 	
 	//Object Repository or page factory
 	@FindBy(name="name")
-	WebElement name;
+	WebElement nameInput;
 	
 	@FindBy(xpath="//input[@value='m']")
 	WebElement radioMale;
@@ -21,25 +23,25 @@ public class NewCustomerPage extends TestBase{
 	WebElement dateOfBirth;
 	
 	@FindBy(name="addr")
-	WebElement address;
+	WebElement addressInput;
 	
 	@FindBy(name="city")
-	WebElement city;
+	WebElement cityIput;
 	
 	@FindBy(name="state")
-	WebElement state;
+	WebElement stateInput;
 	
 	@FindBy(name="pinno")
-	WebElement PIN;
+	WebElement PINInput;
 	
 	@FindBy(name="telephoneno")
-	WebElement mobileNo;
+	WebElement mobileNoInput;
 	
 	@FindBy(name="emailid")
-	WebElement email;
+	WebElement emailInput;
 	
 	@FindBy(name="password")
-	WebElement pswd;
+	WebElement pswdInput;
 	
 	@FindBy(name="sub")
 	WebElement submitButton;
@@ -55,6 +57,11 @@ public class NewCustomerPage extends TestBase{
 	
 	//x[ath for customer ID-//td[contains(text(),'Customer ID')]//following-sibling::td
 	
+	public NewCustomerPage() {
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Actions
 	public boolean validateTitle(String expTitle) {
 		boolean flag=false;
 		String actTitle=driver.getTitle();
@@ -67,8 +74,29 @@ public class NewCustomerPage extends TestBase{
 		return flag;
 	}
 	
-	public void createCustomer() {
+	public void createCustomer(String name, String gender, String date, String addr, String city, String state, String PIN, String mobile, String email, String password) {
+		nameInput.sendKeys(name);
 		
+		if(gender.equalsIgnoreCase("Male")) {
+			radioMale.click();
+		}else {
+			radioFemale.click();
+		}
+		
+		//given that date is entered in ddmmyyyy format e.g for 15 Mar 1990 use 15031990
+		String chop1= date.substring(0, 3);
+		String chop2= date.substring(4);
+		dateOfBirth.sendKeys(chop1+Keys.TAB+chop2);
+		
+		addressInput.sendKeys(addr);
+		cityIput.sendKeys(city);
+		stateInput.sendKeys(state);
+		PINInput.sendKeys(PIN);
+		mobileNoInput.sendKeys(mobile);
+		emailInput.sendKeys(email);
+		pswdInput.sendKeys(password);
+			
+		submitButton.click();
 		
 	}
 	

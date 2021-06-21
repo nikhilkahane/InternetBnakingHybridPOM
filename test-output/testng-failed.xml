@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [InternetBankingSuite]">
-  <test thread-count="5" name="InternetBankingTest(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ibanking.testCases.LoginPageTest">
+      <class name="com.ibanking.testCases.NewCustomerPageTest">
         <methods>
-          <include name="loginTest"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="createCustomerTest"/>
         </methods>
-      </class> <!-- com.ibanking.testCases.LoginPageTest -->
+      </class> <!-- com.ibanking.testCases.NewCustomerPageTest -->
     </classes>
-  </test> <!-- InternetBankingTest(failed) -->
-</suite> <!-- Failed suite [InternetBankingSuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
