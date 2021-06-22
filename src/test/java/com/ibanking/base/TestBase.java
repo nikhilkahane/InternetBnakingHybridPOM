@@ -9,11 +9,16 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+import com.ibanking.utilities.WebEventListener;
 
 public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
+	public static EventFiringWebDriver eventDriver;
+	public static WebEventListener eventListener;
 	
 	public TestBase() {
 		
@@ -44,6 +49,12 @@ public class TestBase {
 			System.setProperty("webdriver.edge.driver", System.getProperty("user.dir")+"\\Drivers\\msedgedriver.exe");
 			driver=new EdgeDriver();	
 		}
+		
+		eventDriver = new EventFiringWebDriver(driver);
+		eventListener= new WebEventListener();
+		eventDriver.register(eventListener);
+		driver=eventDriver;
+		
 		
 		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
 		//driver=new ChromeDriver();

@@ -1,11 +1,16 @@
 package com.ibanking.utilities;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import com.ibanking.base.TestBase;
 
@@ -46,12 +51,53 @@ public class TestUtil extends TestBase{
 					data[i][j]="empty";
 				}else {
 					data[i][j]=sheet.getRow(i+1).getCell(j).getStringCellValue();
+					//System.out.println(data[i][j]);
 				}
 			}
 		}
-		
+		book.close();
+		fis.close();
 		return data;
 		
+	}
+	
+	public static void writeToExcel(String row, String path, String val) throws IOException {
+		FileInputStream fis = null;
+		
+		try {
+			fis= new FileInputStream(path);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("test util values "+row);
+		System.out.println(path);
+		System.out.println(val);
+		
+		XSSFWorkbook book = new XSSFWorkbook(fis);
+		XSSFSheet  sheet = book.getSheetAt(0);
+		
+		int col = sheet.getRow(0).getLastCellNum() - 1;
+		
+		int row1 = Integer.parseInt(row);
+		
+		sheet.getRow(row1).createCell(col).setCellValue(val);
+		
+
+		FileOutputStream fos = new FileOutputStream(path);//these lines are required to write into sheet
+		book.write(fos);
+
+		book.close();
+		fis.close();
+		
+		
+	}
+	
+	public static void takeScreenshotAtEndOfTest() throws IOException {
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String currentDir = System.getProperty("user.dir");
+		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
 	}
 
 }

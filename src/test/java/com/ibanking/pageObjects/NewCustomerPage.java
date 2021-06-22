@@ -1,13 +1,23 @@
 package com.ibanking.pageObjects;
 
+import java.io.IOException;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.ibanking.base.TestBase;
+import com.ibanking.utilities.TestUtil;
 
 public class NewCustomerPage extends TestBase{
+	
+	String path = System.getProperty("user.dir")+"\\src\\test\\java\\com\\ibanking\\testData\\InernetBankingTestData.xlsx";
+	
 	
 	//Object Repository or page factory
 	@FindBy(name="name")
@@ -55,7 +65,7 @@ public class NewCustomerPage extends TestBase{
 	@FindBy(linkText="Edit Customer")
 	WebElement editCustomerLink;
 	
-	//x[ath for customer ID-//td[contains(text(),'Customer ID')]//following-sibling::td
+	//xpath for customer ID-//td[contains(text(),'Customer ID')]//following-sibling::td
 	
 	public NewCustomerPage() {
 		PageFactory.initElements(driver, this);
@@ -74,7 +84,9 @@ public class NewCustomerPage extends TestBase{
 		return flag;
 	}
 	
-	public void createCustomer(String name, String gender, String date, String addr, String city, String state, String PIN, String mobile, String email, String password) {
+	public boolean createCustomer(String row, String name, String gender, String date, String addr, String city, String state, String PIN, String mobile, String email, String password) throws IOException {
+		boolean custCreated;
+		
 		nameInput.sendKeys(name);
 		
 		if(gender.equalsIgnoreCase("Male")) {
@@ -84,7 +96,7 @@ public class NewCustomerPage extends TestBase{
 		}
 		
 		//given that date is entered in ddmmyyyy format e.g for 15 Mar 1990 use 15031990
-		String chop1= date.substring(0, 3);
+		String chop1= date.substring(0, 4);
 		String chop2= date.substring(4);
 		dateOfBirth.sendKeys(chop1+Keys.TAB+chop2);
 		
@@ -98,7 +110,24 @@ public class NewCustomerPage extends TestBase{
 			
 		submitButton.click();
 		
+		try {
+			Alert a = driver.switchTo().alert();
+			System.out.println("Failed to create customer "+name+" with error: "+a.getText());
+			a.accept();
+			custCreated=false;
+		
+		}catch(NoAlertPresentException e) {
+			String val=driver.findElement(By.xpath("//td[contains(text(),'Customer ID')]//following-sibling::td")).getText();
+			TestUtil.writeToExcel(row, path, val);
+			custCreated=true;
+		}
+		
+		return custCreated;
+		
+		
 	}
+	
+	
 	
 
 }
