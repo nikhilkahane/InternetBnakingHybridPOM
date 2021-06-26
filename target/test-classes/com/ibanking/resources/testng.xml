@@ -4,6 +4,8 @@
   <test name="InternetBankingTest">
     <classes> 
       <class name="com.ibanking.testCases.LoginPageTest"/>
+      <class name="com.ibanking.testCases.HomePageTest"/>
+      <class name="com.ibanking.testCases.NewCustomerPageTest"/>
       
     </classes>
   </test>
