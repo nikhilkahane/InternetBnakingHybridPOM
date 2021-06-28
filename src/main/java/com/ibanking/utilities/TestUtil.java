@@ -29,7 +29,7 @@ public class TestUtil extends TestBase{
 		return flag;
 	}
 	
-	public static Object[][] dataProvider(String path) throws IOException {
+	public static Object[][] dataProvider(String path, String sheetname) throws IOException {
 		
 		FileInputStream fis = null;
 		
@@ -41,7 +41,7 @@ public class TestUtil extends TestBase{
 		}
 		
 		XSSFWorkbook book = new XSSFWorkbook(fis);
-		XSSFSheet  sheet = book.getSheetAt(0);
+		XSSFSheet  sheet = book.getSheet(sheetname);
 		
 		Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
 		
@@ -61,7 +61,7 @@ public class TestUtil extends TestBase{
 		
 	}
 	
-	public static void writeToExcel(String row, String path, String val) throws IOException {
+	public static void writeToExcel(String row, String path, String val, String sheetname) throws IOException {
 		FileInputStream fis = null;
 		
 		try {
@@ -76,7 +76,7 @@ public class TestUtil extends TestBase{
 		System.out.println(val);
 		
 		XSSFWorkbook book = new XSSFWorkbook(fis);
-		XSSFSheet  sheet = book.getSheetAt(0);
+		XSSFSheet  sheet = book.getSheet(sheetname);
 		
 		int col = sheet.getRow(0).getLastCellNum() - 1;
 		

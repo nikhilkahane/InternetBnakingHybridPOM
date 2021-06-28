@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="InternetBankingSuite">
+
+  <listeners>
+  	<listener class-name="com.ibanking.utilities.RetryTransformer"></listener>
+  </listeners>
+  
+
   <test name="InternetBankingTest">
+  
+
     <classes> 
       <class name="com.ibanking.testCases.LoginPageTest"/>
       <class name="com.ibanking.testCases.HomePageTest"/>

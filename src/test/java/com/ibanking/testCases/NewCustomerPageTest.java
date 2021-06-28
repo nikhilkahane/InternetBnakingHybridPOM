@@ -19,7 +19,7 @@ public class NewCustomerPageTest extends TestBase{
 	LoginPage loginPage;
 	HomePage homePage;
 	NewCustomerPage newCustomerPage;
-	String path = System.getProperty("user.dir")+"\\src\\test\\java\\com\\ibanking\\testData\\InernetBankingTestData.xlsx";
+	//String path = System.getProperty("user.dir")+"\\src\\test\\java\\com\\ibanking\\testData\\InernetBankingTestData.xlsx";
 	
 	public NewCustomerPageTest() {
 		super();
@@ -36,7 +36,7 @@ public class NewCustomerPageTest extends TestBase{
 	
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		//driver.quit();
 	}
 	
 	
@@ -49,7 +49,7 @@ public class NewCustomerPageTest extends TestBase{
 	
 	@DataProvider
 	public Object[][] newCustData() throws IOException{
-		Object[][] newcust = TestUtil.dataProvider(path);
+		Object[][] newcust = TestUtil.dataProvider(filePath,"NewCustomer");
 		return newcust;
 	}
 

@@ -19,6 +19,8 @@ public class TestBase {
 	public static Properties prop;
 	public static EventFiringWebDriver eventDriver;
 	public static WebEventListener eventListener;
+	public static String filePath = System.getProperty("user.dir")+
+			"\\src\\test\\java\\com\\ibanking\\testData\\InernetBankingTestData.xlsx";
 	
 	public TestBase() {
 		
@@ -26,7 +28,7 @@ public class TestBase {
 		FileInputStream fis;
 		try {
 			fis = new FileInputStream(System.getProperty("user.dir")+
-					"\\src\\test\\java\\com\\ibanking\\config\\config.properties");
+					"\\src\\main\\java\\com\\ibanking\\config\\config.properties");
 			prop.load(fis);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -63,7 +65,8 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		
-		driver.get(prop.getProperty("url"));
+		//driver.get(prop.getProperty("url"));
+		driver.navigate().to(prop.getProperty("url")); //navigate to can also be used to go to url
 		
 		
 	}

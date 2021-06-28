@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ibanking.testCases.NewCustomerPageTest">
+      <class name="com.ibanking.testCases.DepositPageTest">
         <methods>
-          <include name="setUp"/>
+          <include name="depositAmountTest"/>
           <include name="tearDown"/>
-          <include name="createCustomerTest" invocation-numbers="0 1"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.ibanking.testCases.NewCustomerPageTest -->
+      </class> <!-- com.ibanking.testCases.DepositPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

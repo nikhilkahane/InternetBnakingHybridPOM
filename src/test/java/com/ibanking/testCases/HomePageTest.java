@@ -9,12 +9,15 @@ import com.ibanking.base.TestBase;
 import com.ibanking.pageObjects.HomePage;
 import com.ibanking.pageObjects.LoginPage;
 import com.ibanking.pageObjects.NewCustomerPage;
+import com.ibanking.utilities.TestUtil;
 
 public class HomePageTest extends TestBase{
 	
 	LoginPage loginPage;
 	HomePage homePage;
 	NewCustomerPage newCustomerPage;
+	
+	String homeTitle = "Guru99 Bank Manager HomePage";
 	
 	
 	public HomePageTest() {
@@ -36,8 +39,8 @@ public class HomePageTest extends TestBase{
 	
 	
 	@Test
-	public void linkTest() {
-		Assert.assertTrue(homePage.newCutomerLinkTest());
+	public void titleTest() {
+		Assert.assertTrue(TestUtil.validateTitle(homeTitle), "Home page tile does not match");
 	}
 	
 	@Test
@@ -45,7 +48,7 @@ public class HomePageTest extends TestBase{
 		Assert.assertTrue(homePage.validateManagerID(prop.getProperty("username")));
 	}
 	
-	@Test
+	@Test(priority=10)
 	public void goToNewCustomerTest() {
 		newCustomerPage=homePage.goToNewCustomer();
 	}

@@ -16,8 +16,6 @@ import com.ibanking.utilities.TestUtil;
 
 public class NewCustomerPage extends TestBase{
 	
-	String path = System.getProperty("user.dir")+"\\src\\test\\java\\com\\ibanking\\testData\\InernetBankingTestData.xlsx";
-	
 	
 	//Object Repository or page factory
 	@FindBy(name="name")
@@ -118,7 +116,7 @@ public class NewCustomerPage extends TestBase{
 		
 		}catch(NoAlertPresentException e) {
 			String val=driver.findElement(By.xpath("//td[contains(text(),'Customer ID')]//following-sibling::td")).getText();
-			TestUtil.writeToExcel(row, path, val);
+			TestUtil.writeToExcel(row, filePath, val, "NewCustomer");
 			custCreated=true;
 		}
 		

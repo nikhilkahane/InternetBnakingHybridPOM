@@ -1,49 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="27801" started-at="2021-06-26T09:19:21Z" finished-at="2021-06-26T09:19:48Z">
+  <suite name="Default suite" duration-ms="20535" started-at="2021-06-28T15:56:49Z" finished-at="2021-06-28T15:57:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="27801" started-at="2021-06-26T09:19:21Z" finished-at="2021-06-26T09:19:48Z">
-      <class name="com.ibanking.testCases.HomePageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="setUp" is-config="true" duration-ms="10512" started-at="2021-06-26T09:19:21Z" finished-at="2021-06-26T09:19:31Z">
+    <test name="Default test" duration-ms="20535" started-at="2021-06-28T15:56:49Z" finished-at="2021-06-28T15:57:09Z">
+      <class name="com.ibanking.testCases.WithdrawalPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ibanking.testCases.WithdrawalPageTest@4667ae56]" name="setUp" is-config="true" duration-ms="8840" started-at="2021-06-28T15:56:50Z" finished-at="2021-06-28T15:56:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="goToNewCustomerTest()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="goToNewCustomerTest" duration-ms="478" started-at="2021-06-26T09:19:31Z" finished-at="2021-06-26T09:19:32Z">
+        <test-method status="PASS" signature="depositAmountTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.ibanking.testCases.WithdrawalPageTest@4667ae56]" name="depositAmountTest" duration-ms="1675" started-at="2021-06-28T15:56:58Z" data-provider="withdrawData" finished-at="2021-06-28T15:57:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[94389]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[300]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[asd]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[empty]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- goToNewCustomerTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="tearDown" is-config="true" duration-ms="815" started-at="2021-06-26T09:19:32Z" finished-at="2021-06-26T09:19:32Z">
+        </test-method> <!-- depositAmountTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ibanking.testCases.WithdrawalPageTest@4667ae56]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-06-28T15:57:00Z" finished-at="2021-06-28T15:57:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="setUp" is-config="true" duration-ms="6979" started-at="2021-06-26T09:19:32Z" finished-at="2021-06-26T09:19:39Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ibanking.testCases.WithdrawalPageTest@4667ae56]" name="setUp" is-config="true" duration-ms="7723" started-at="2021-06-28T15:57:00Z" finished-at="2021-06-28T15:57:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="linkTest()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="linkTest" duration-ms="279" started-at="2021-06-26T09:19:39Z" finished-at="2021-06-26T09:19:40Z">
+        <test-method status="PASS" signature="depositAmountTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.ibanking.testCases.WithdrawalPageTest@4667ae56]" name="depositAmountTest" duration-ms="1548" started-at="2021-06-28T15:57:08Z" data-provider="withdrawData" finished-at="2021-06-28T15:57:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[94390]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[400]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[asd]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[empty]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- linkTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="tearDown" is-config="true" duration-ms="748" started-at="2021-06-26T09:19:40Z" finished-at="2021-06-26T09:19:40Z">
+        </test-method> <!-- depositAmountTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ibanking.testCases.WithdrawalPageTest@4667ae56]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-06-28T15:57:09Z" finished-at="2021-06-28T15:57:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="setUp" is-config="true" duration-ms="6638" started-at="2021-06-26T09:19:40Z" finished-at="2021-06-26T09:19:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateManagerIDTest()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="validateManagerIDTest" duration-ms="35" started-at="2021-06-26T09:19:47Z" finished-at="2021-06-26T09:19:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateManagerIDTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.ibanking.testCases.HomePageTest@5442a311]" name="tearDown" is-config="true" duration-ms="1269" started-at="2021-06-26T09:19:47Z" finished-at="2021-06-26T09:19:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.ibanking.testCases.HomePageTest -->
+      </class> <!-- com.ibanking.testCases.WithdrawalPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
